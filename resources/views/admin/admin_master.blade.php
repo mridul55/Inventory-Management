@@ -191,22 +191,16 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
         <script src="{{ asset('backend/assets/js/code.js') }}"></script>
-<<<<<<< HEAD
         <script src="{{ asset('backend/assets/js/handlebars.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
 
-=======
->>>>>>> fe02a0ca7dd5b493e6dd1588a384d97c1350ca6a
         <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>    
 
          {{-- Tags inputs JS cdn --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js" ></script>
-<<<<<<< HEAD
         {{-- Select 2 --}}
         <script src="{{ asset('backend/assets/libs/select2/js/select2.min.js') }}"></script>
         <script src="{{ asset('backend/assets/js/pages/form-advanced.init.js') }}"></script>
-=======
->>>>>>> fe02a0ca7dd5b493e6dd1588a384d97c1350ca6a
 
           <script>
             $(function(){
