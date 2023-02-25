@@ -65,9 +65,9 @@
                                 
                                 <tr>
                                     <input type="hidden" name="id">
-                                    <input type="hidden" name="category_id" value="$details->category_id">
-                                    <input type="hidden" name="product_id" value="$details->product_id">
-                                    <input type="hidden" name="selling_qty[{{ $details->id }}]" value="$details->selling_qty">
+                                    <input type="hidden" name="category_id" value="{{ $details->category_id }}">
+                                    <input type="hidden" name="product_id" value="{{ $details->product_id }}">
+                                    <input type="hidden" name="selling_qty[{{ $details->id }}]" value="{{ $details->selling_qty }}">
 
 
                                     <td class="text-center">{{ $key+1 }}</td>

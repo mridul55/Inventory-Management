@@ -87,6 +87,7 @@ class InvoiceController extends Controller
                         $invoice_details->unit_price = $request->unit_price[$i];
                         $invoice_details->selling_price = $request->selling_price[$i];
                         $invoice_details->status = '1';
+                        $invoice_details->status = '0';
                         $invoice_details->save();
 
                       }
@@ -111,27 +112,25 @@ class InvoiceController extends Controller
                     $payment->discount_amount = $request->discount_amount;
                     $payment->total_amount = $request->estimated_amount;
 
-                       if($request->paid_status == 'full_paid'){
-                       $payment->paid_amount =$request->estimated_amount;
-                       $payment->due_amount = '0';
-                       $pamentdetails->current_paid_amount	= $request->estimated_amount;
-                       
-                        } elseif($request->paid_status == 'full_due'){
-                                $payment->paid_amount ='0';
-                                $payment->due_amount = $request->estimated_amount;
-                                $pamentdetails->current_paid_amount	= '0';
-                        } 
-                        elseif($request->paid_status == 'partial_paid'){
-                            $payment->paid_amount =$request->paid_amount;
-                            $payment->due_amount = $request->estimated_amount-$request->paid_amount;
-                            $pamentdetails->current_paid_amount	= $request->paid_amount;
-                        } 
-                        $payment->save();
-                        $pamentdetails->invoice_id =$invoice->id;
-                        $pamentdetails->date = date('Y-m-d', strtotime($request->date));
-                        $pamentdetails->save();
-
-                   }
+                    if ($request->paid_status == 'full_paid') {
+                        $payment->paid_amount = $request->estimated_amount;
+                        $payment->due_amount = '0';
+                        $payment_details->current_paid_amount = $request->estimated_amount;
+                    } elseif ($request->paid_status == 'full_due') {
+                        $payment->paid_amount = '0';
+                        $payment->due_amount = $request->estimated_amount;
+                        $payment_details->current_paid_amount = '0';
+                    }elseif ($request->paid_status == 'partial_paid') {
+                        $payment->paid_amount = $request->paid_amount;
+                        $payment->due_amount = $request->estimated_amount - $request->paid_amount;
+                        $payment_details->current_paid_amount = $request->paid_amount;
+                    }
+                    $payment->save();
+        
+                    $payment_details->invoice_id = $invoice->id; 
+                    $payment_details->date = date('Y-m-d',strtotime($request->date));
+                    $payment_details->save(); 
+                } 
               });
                
             }//end else
@@ -194,10 +193,12 @@ class InvoiceController extends Controller
         $invoice->status = '1';
 
         DB::transaction(function() use($request,$invoice,$id){
+           
             foreach($request->selling_qty as $key => $val){
              $invoice_details = InvoiceDetail::where('id',$key)->first();
 
              $invoice_details->status = '1';
+
              $invoice_details->save();
 
              $product = Product::where('id',$invoice_details->product_id)->first();

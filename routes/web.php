@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Pos\UnitController;
+use App\Http\Controllers\Pos\StockController;
 use App\Http\Controllers\Pos\DefaultController;
 use App\Http\Controllers\Pos\InvoiceController;
 use App\Http\Controllers\Pos\ProductController;
@@ -123,6 +124,20 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/print/invoice/{id}', 'PrintInvoice')->name('print.invoice');
         Route::get('/daily/invoice/report', 'DailyInvoiceReport')->name('daily.invoice.report');
         Route::get('/daily/invoice/pdf', 'DailyInvoicePdf')->name('daily.invoice.pdf');
+
+    });
+});
+
+//Stock
+Route::middleware(['auth'])->group(function () {
+    Route::controller(StockController::class)->group(function(){ 
+        Route::get('/stock/report', 'StockReport')->name('stock.report');
+        Route::get('/stock/report/pdf', 'StockReportPdf')->name('stock.report.pdf');
+        Route::get('/stock/supplier/wise', 'StockSupplierWise')->name('stock.supplier.wise');
+        Route::get('/stock/supplier/pdf', 'StockSupplierPdf')->name('supplier.wise.pdf');
+        Route::get('/stock/product/pdf', 'ProductWisePdf')->name('product.wise.pdf');
+
+
 
 
     });
