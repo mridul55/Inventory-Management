@@ -52,6 +52,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/customer/edit/{id}', 'CustomerEdit')->name('customer.edit');
         Route::post('/customer/update/{id}', 'CustomerUpdate')->name('customer.update');
         Route::get('/customer/delete/{id}', 'CustomerDelete')->name('customer.delete');
+        Route::get('/credit/customer', 'CreditCustomer')->name('credit.customer');
+        Route::get('/credit/customer.print.pdf', 'CreditCustomerPrintPdf')->name('credit.customer.print.pdf');
+
+
 
     });
 });
@@ -99,6 +103,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/purchase/delete/{id}', 'PurchaseDelete')->name('purchase.delete');
         Route::get('/purchase/pending', 'PurchasePending')->name('purchase.pending');
         Route::get('/purchase/approve/{id}', 'PurchaseApprove')->name('purchase.approve');
+        Route::get('/daily/purchase/report', 'DailyPurchaseReport')->name('daily.purchase.report');
+        Route::get('/daily/purchase/pdf', 'DailyPurchasePdf')->name('daily.purchase.pdf');
+
+
     });
 });
 //Default Controller
