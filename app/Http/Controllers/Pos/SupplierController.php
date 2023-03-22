@@ -24,6 +24,7 @@ class SupplierController extends Controller
     }
 
     public function SupplierStore(Request $request){
+        dd($_POST["name"]);
 
         Supplier::insert([
 

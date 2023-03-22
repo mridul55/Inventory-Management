@@ -110,6 +110,17 @@
                         
                 </ul>
             </li>
+            {{-- Test --}}
+            {{-- <li>
+              <a href="javascript: void(0)" class="has-arrow waves-effect">
+              <i class="ri-mail-sent-line"></i>
+              <span>Test</span>
+              </a>
+              <ul class="sub-menu" aria-expanded="false">
+                <li><a href="{{ route('test.all') }}">Test All</a></li>
+              </ul>
+          </li> --}}
+
 
             </ul>
         </div>

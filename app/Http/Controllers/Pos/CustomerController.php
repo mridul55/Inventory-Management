@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\InvoicePayment;
+use App\Models\InvoicePaymentDetail;
 use Auth;
 use Illuminate\Support\Carbon;
 use Image;
@@ -135,5 +136,25 @@ class CustomerController extends Controller
         $payment = InvoicePayment::where('invoice_id',$invoice_id)->first();
         return view('backend.customer.edit_customer_invoice',compact('payment'));
         
+    }
+
+    public function CustomerUpdateInvoice(Request $request,$invoice_id ){
+        
+        if($request->new_paid_amount < $request->paid_amount){
+            $notification = array(
+                'message' => 'Sry You paid maxiam value',
+                'alert-type' => 'success'
+            );
+    
+            return redirect()->back()->with($notification);
+        } else{
+            $payment = InvoicePayment::where('invoice_id',$invoice_id)->first();
+            $payment_details = new InvoicePaymentDetail();
+            $payment->paid_status = $request->paid_status;
+
+            if($request->paid_status =='full_paid'){
+
+            }
+        }
     }
 }

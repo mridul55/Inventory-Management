@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Pos\UnitController;
 use App\Http\Controllers\Pos\StockController;
@@ -11,10 +12,6 @@ use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\PurchaseController;
 use App\Http\Controllers\Pos\SupplierController;
-
-
-
-
 
 
 Route::get('/', function () {
@@ -55,8 +52,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/credit/customer', 'CreditCustomer')->name('credit.customer');
         Route::get('/credit/customer.print.pdf', 'CreditCustomerPrintPdf')->name('credit.customer.print.pdf');
         Route::get('/customer/edit/invoice/{invoice_id}', 'CustomerEditInvoice')->name('customer.edit.invoice');
-
-
+        Route::post('/customer/update/invoice/{invoice_id}', 'CustomerUpdateInvoice')->name('customer.update.invoice');
     });
 });
 //Unit
@@ -105,8 +101,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/purchase/approve/{id}', 'PurchaseApprove')->name('purchase.approve');
         Route::get('/daily/purchase/report', 'DailyPurchaseReport')->name('daily.purchase.report');
         Route::get('/daily/purchase/pdf', 'DailyPurchasePdf')->name('daily.purchase.pdf');
-
-
     });
 });
 //Default Controller
@@ -122,11 +116,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/invoice/all', 'InvoiceAll')->name('invoice.all');
         Route::get('/invoice/add', 'InvoiceAdd')->name('invoice.add');
         Route::post('/invoice/store', 'InvoiceStore')->name('invoice.store');
-
         Route::get('/invoice/pending/list', 'PendingList')->name('invoice.pending.list');
         Route::get('/invoice/delete/{id}', 'InvoiceDelete')->name('invoice.delete');
         Route::get('/invoice/approve/{id}', 'InvoiceApprove')->name('invoice.approve');
-
         Route::post('/approval/store/{id}', 'ApprovalStore')->name('approval.store');
         Route::get('/print/invoice/list', 'PrintInvoiceList')->name('print.invoice.list');
         Route::get('/print/invoice/{id}', 'PrintInvoice')->name('print.invoice');
@@ -144,12 +136,21 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/stock/supplier/wise', 'StockSupplierWise')->name('stock.supplier.wise');
         Route::get('/stock/supplier/pdf', 'StockSupplierPdf')->name('supplier.wise.pdf');
         Route::get('/stock/product/pdf', 'ProductWisePdf')->name('product.wise.pdf');
-
-
-
-
     });
 });
+
+//Test
+Route::middleware(['auth'])->group(function () {
+    Route::controller(TestController::class)->group(function(){ 
+        Route::get('/test/all', 'TestAll')->name('test.all');
+        //Route::get('/test/add', 'TestAdd')->name('test.add');
+        // Route::post('/test/store', 'TestStore')->name('test.store');
+        // Route::get('/test/edit/{id}', 'TestEdit')->name('test.edit');
+        // Route::post('/test/update/{id}', 'TestUpdate')->name('test.update');
+        // Route::get('/test/delete/{id}', 'TestDelete')->name('test.delete');
+
+    });
+}); 
 
 Route::get('/dashboard', function () {
     return view('admin.index');

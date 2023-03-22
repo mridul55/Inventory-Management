@@ -11,7 +11,6 @@
                         <h4 class="card-title">Edit Unit</h4>
                         <form action="{{ route('unit.update',$unitedit->id ) }}" id="myForm" method="post" enctype="multipart/form-data">
                             @csrf
-
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Unit Name</label>
                                 <div class="form-group col-sm-10">
@@ -50,7 +49,6 @@
                 name:{
                     required: 'Please Enter Suplier Name',
                 },
-                
             },
             errorElement : 'span',
             errorPlacement : function(error,element){

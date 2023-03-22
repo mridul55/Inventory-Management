@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <div class="page-content">
     <div class="container-fluid">
 
@@ -75,6 +75,9 @@
 
                         <div class="row">
                             <div class="col-12">
+                                <form action="{{ route('customer.update.invoice',$payment->invoice_id) }}" method="post">
+                                    @csrf
+
                                 <div>
                                     <div class="p-2">
                                         <h3 class="font-size-16"><strong>Customer Invoice (Invoice No: #{{ $payment->invoice->invoice_no }}) </strong></h3>
@@ -164,6 +167,7 @@
                                                         <td class="no-line"></td>
                                                         <td class="no-line text-center">
                                                             <strong>Due Amount</strong></td>
+                                                            <input type="hidden" name="new_paid_amount" value="{{ $payment->due_amount }}">
                                                         <td class="no-line text-end">{{ $payment->due_amount }}</td>
                                                     </tr>
                                                     <tr>
@@ -181,28 +185,40 @@
                                                 </tbody>
                                             </table>
                                         </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label for="">Paid Status</label>
+                                            <select name="paid_status" id="paid_status" class="form-select">
+                                                <option value="">Select Status</option>
+                                                <option value="full_paid">Full Paid</option>
+                                                <option value="partial_paid">Partial paid</option>
+                                                
+                                            </select>
+                                            <input type="text" name="paid_amount" class="from-control paid_amount" placeholder="enter paid amount" style="display:none">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <div class="md-3">
+                                                <label for="example-text-input" class="form-label">Date</label>
+                                                 <input class="form-control example-date-input" name="date" type="date"placeholder="YY-MM-DD" id="date">
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="form-group col-md-3">
+
+                                            <div class="md-3 mt-4">
+                                                <button type="submit" class="btn btn-info">Invoice Update</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
 
                                         
                                     </div>
                                 </div>
-
+                             </form>
                             </div>
                         </div> <!-- end row --> <!-- end row -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                     </div>
                 </div>
@@ -211,6 +227,17 @@
 
     </div> <!-- container-fluid -->
 </div>
+<script>
+    $(document).on('change','#paid_status',function(){
+        var paid_status = $(this).val();
+        if (paid_status == 'partial_paid') {
+            $('.paid_amount').show();
+        } else {
+            $('.paid_amount').hide();
+        }
+    });
+   
+</script>
 
 
 @endsection

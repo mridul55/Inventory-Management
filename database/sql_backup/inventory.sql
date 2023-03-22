@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 23, 2023 at 02:58 PM
+-- Generation Time: Mar 22, 2023 at 05:14 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -282,14 +282,17 @@ CREATE TABLE IF NOT EXISTS `invoices` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `invoices`
 --
 
 INSERT INTO `invoices` (`id`, `invoice_no`, `date`, `description`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(4, '1', '2023-02-14', 'new test', 1, 4, 4, '2023-02-14 06:23:09', '2023-02-22 09:07:51');
+(13, '2', '2023-02-25', 'Bla bla bla', 1, 4, 4, '2023-02-25 07:41:38', '2023-02-25 07:43:04'),
+(4, '1', '2023-02-14', 'new test', 1, 4, 4, '2023-02-14 06:23:09', '2023-02-22 09:07:51'),
+(14, '3', '2023-02-25', 'kalshfljksnf', 1, 4, 4, '2023-02-25 08:18:40', '2023-02-25 08:23:00'),
+(16, '4', '2023-02-25', 'wedfwaf', 1, 4, 4, '2023-02-25 08:26:50', '2023-02-25 08:27:09');
 
 -- --------------------------------------------------------
 
@@ -311,7 +314,7 @@ CREATE TABLE IF NOT EXISTS `invoice_details` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `invoice_details`
@@ -329,7 +332,10 @@ INSERT INTO `invoice_details` (`id`, `date`, `invoice_id`, `category_id`, `produ
 (9, '1970-01-01', 7, 8, 5, 2, 500, 1000, 1, '2023-02-21 05:16:12', '2023-02-21 05:16:12'),
 (10, '1970-01-01', 8, 8, 5, 2, 500, 1000, 1, '2023-02-21 05:16:38', '2023-02-21 05:16:38'),
 (11, '1970-01-01', 9, 7, 11, 2, 200, 400, 1, '2023-02-21 21:54:30', '2023-02-21 21:54:30'),
-(12, '1970-01-01', 10, 7, 11, 2, 200, 400, 1, '2023-02-21 21:55:57', '2023-02-21 21:55:57');
+(12, '1970-01-01', 10, 7, 11, 2, 200, 400, 1, '2023-02-21 21:55:57', '2023-02-21 21:55:57'),
+(16, '1970-01-01', 14, 5, 12, 2, 200, 400, 1, '2023-02-25 08:18:40', '2023-02-25 08:23:00'),
+(18, '1970-01-01', 16, 8, 4, 1, 400, 400, 1, '2023-02-25 08:26:50', '2023-02-25 08:27:09'),
+(15, '1970-01-01', 13, 5, 12, 5, 200, 1000, 1, '2023-02-25 07:41:38', '2023-02-25 07:43:04');
 
 -- --------------------------------------------------------
 
@@ -350,7 +356,7 @@ CREATE TABLE IF NOT EXISTS `invoice_payments` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `invoice_payments`
@@ -361,7 +367,10 @@ INSERT INTO `invoice_payments` (`id`, `invoice_id`, `customer_id`, `paid_status`
 (2, 2, 9, 'partial_paid', 500, 1000, 1500, 200, '2023-02-14 06:12:18', '2023-02-14 06:12:18'),
 (3, 3, 10, 'partial_paid', 500, 500, 1000, NULL, '2023-02-14 06:17:57', '2023-02-14 06:17:57'),
 (4, 4, 11, 'partial_paid', 500, 500, 1000, NULL, '2023-02-14 06:23:09', '2023-02-14 06:23:09'),
-(5, 8, NULL, 'full_paid', 800, 0, 800, 200, '2023-02-21 05:16:38', '2023-02-21 05:16:38');
+(5, 8, NULL, 'full_paid', 800, 0, 800, 200, '2023-02-21 05:16:38', '2023-02-21 05:16:38'),
+(6, 13, 9, 'full_paid', 900, 0, 900, 100, '2023-02-25 07:41:38', '2023-02-25 07:41:38'),
+(7, 14, 6, 'full_paid', 400, 0, 400, NULL, '2023-02-25 08:18:40', '2023-02-25 08:18:40'),
+(9, 16, 8, 'full_paid', 300, 0, 300, 100, '2023-02-25 08:26:50', '2023-02-25 08:26:50');
 
 -- --------------------------------------------------------
 
@@ -379,7 +388,7 @@ CREATE TABLE IF NOT EXISTS `invoice_payment_details` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `invoice_payment_details`
@@ -389,7 +398,10 @@ INSERT INTO `invoice_payment_details` (`id`, `invoice_id`, `current_paid_amount`
 (1, 2, 500, '2023-02-14', NULL, '2023-02-14 06:12:18', '2023-02-14 06:12:18'),
 (2, 3, 500, '2023-02-14', NULL, '2023-02-14 06:17:57', '2023-02-14 06:17:57'),
 (3, 4, 500, '2023-02-14', NULL, '2023-02-14 06:23:09', '2023-02-14 06:23:09'),
-(4, 8, 800, '2023-02-21', NULL, '2023-02-21 05:16:38', '2023-02-21 05:16:38');
+(4, 8, 800, '2023-02-21', NULL, '2023-02-21 05:16:38', '2023-02-21 05:16:38'),
+(5, 13, 900, '2023-02-25', NULL, '2023-02-25 07:41:38', '2023-02-25 07:41:38'),
+(6, 14, 400, '2023-02-25', NULL, '2023-02-25 08:18:40', '2023-02-25 08:18:40'),
+(8, 16, 300, '2023-02-25', NULL, '2023-02-25 08:26:50', '2023-02-25 08:26:50');
 
 -- --------------------------------------------------------
 
@@ -403,7 +415,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
@@ -431,7 +443,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (19, '2023_02_14_050729_create_invoices_table', 16),
 (20, '2023_02_14_050925_create_invoice_details_table', 16),
 (21, '2023_02_14_051022_create_invoice_payments_table', 16),
-(22, '2023_02_14_051240_create_invoice_payment_details_table', 16);
+(22, '2023_02_14_051240_create_invoice_payment_details_table', 16),
+(23, '2023_03_21_162503_create_tests_table', 17);
 
 -- --------------------------------------------------------
 
@@ -542,7 +555,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `products`
@@ -550,13 +563,14 @@ CREATE TABLE IF NOT EXISTS `products` (
 
 INSERT INTO `products` (`id`, `supplier_id`, `unit_id`, `category_id`, `name`, `quantity`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
 (5, 7, 4, 8, 'KSRM Steel', 3, 1, 4, NULL, '2023-02-12 06:36:23', '2023-02-13 22:31:06'),
-(4, 6, 4, 8, 'Bosundora Steel', 2, 1, 4, NULL, '2023-02-12 06:30:45', '2023-02-21 07:32:12'),
+(4, 6, 4, 8, 'Bosundora Steel', 1, 1, 4, NULL, '2023-02-12 06:30:45', '2023-02-25 08:27:09'),
 (6, 6, 1, 5, 'Bosundhara Cement', 0, 1, 4, NULL, '2023-02-12 06:37:08', NULL),
 (7, 10, 1, 5, 'Holcim Cement', 0, 1, 4, NULL, '2023-02-12 06:39:36', NULL),
 (8, 12, 1, 5, 'Shah Cement', 0, 1, 4, NULL, '2023-02-12 06:40:05', NULL),
 (9, 13, 1, 5, 'Madina Cement', 0, 1, 4, NULL, '2023-02-12 06:40:25', NULL),
 (10, 8, 4, 7, 'Walton Mobile w52', 2, 1, 4, NULL, '2023-02-12 06:42:04', '2023-02-13 22:30:37'),
-(11, 8, 4, 7, 'walton Mobile w55', 10, 1, 4, NULL, '2023-02-12 06:43:12', '2023-02-22 00:32:10');
+(11, 8, 4, 7, 'walton Mobile w55', 10, 1, 4, NULL, '2023-02-12 06:43:12', '2023-02-22 00:32:10'),
+(12, 12, 1, 5, 'Test Product', 18, 1, 4, NULL, '2023-02-25 07:31:45', '2023-02-25 08:23:00');
 
 -- --------------------------------------------------------
 
@@ -582,7 +596,7 @@ CREATE TABLE IF NOT EXISTS `purchases` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `purchases`
@@ -594,7 +608,8 @@ INSERT INTO `purchases` (`id`, `supplier_id`, `category_id`, `product_id`, `purc
 (3, 6, 8, 4, 's=111', '2023-02-01', NULL, 2, 500, 1000, 1, 4, NULL, '2023-02-13 05:02:29', '2023-02-21 07:32:12'),
 (4, 7, 8, 5, 's=111', '2023-02-01', NULL, 3, 500, 1500, 1, 4, NULL, '2023-02-13 05:02:29', '2023-02-13 22:31:06'),
 (5, 8, 7, 10, 'Sa=2020', '2023-02-01', NULL, 2, 5000, 10000, 1, 4, NULL, '2023-02-13 09:27:06', '2023-02-13 22:30:37'),
-(7, 8, 7, 11, 'ea234', '2023-02-22', 'New Mobile', 10, 500, 5000, 1, 4, NULL, '2023-02-22 00:31:26', '2023-02-22 00:32:10');
+(7, 8, 7, 11, 'ea234', '2023-02-22', 'New Mobile', 10, 500, 5000, 1, 4, NULL, '2023-02-22 00:31:26', '2023-02-22 00:32:10'),
+(8, 12, 5, 12, 'EA 2323', '2023-02-25', 'Test', 20, 200, 4000, 1, 4, NULL, '2023-02-25 07:35:12', '2023-02-25 07:35:48');
 
 -- --------------------------------------------------------
 
@@ -615,7 +630,7 @@ CREATE TABLE IF NOT EXISTS `suppliers` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `suppliers`
@@ -629,7 +644,24 @@ INSERT INTO `suppliers` (`id`, `name`, `mobile_no`, `email`, `address`, `status`
 (10, 'Holcim', '01722445566', 'holcim@gmail.com', 'Mirpur,Dhaka', 1, 4, NULL, '2023-02-12 05:01:55', NULL),
 (11, 'Samsung', '01722445566', 'samsung@gmail.com', 'Samoli, Dhaka', 1, 4, NULL, '2023-02-12 05:02:49', NULL),
 (12, 'Shah', '01722445566', 'shah@gmail.com', 'kollanpur,Dhaka', 1, 4, NULL, '2023-02-12 05:04:27', NULL),
-(13, 'Modina', '01722445566', 'modina@gmail.com', 'Rampura,Dhaka', 1, 4, NULL, '2023-02-12 05:05:58', NULL);
+(13, 'Modina', '01722445566', 'modina@gmail.com', 'Rampura,Dhaka', 1, 4, NULL, '2023-02-12 05:05:58', NULL),
+(14, 'Shah', '01722445566', 'shah@gmail.com', 'Saja Malonchi', 1, 4, NULL, '2023-02-25 07:33:13', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tests`
+--
+
+DROP TABLE IF EXISTS `tests`;
+CREATE TABLE IF NOT EXISTS `tests` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -647,7 +679,7 @@ CREATE TABLE IF NOT EXISTS `units` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `units`
@@ -656,7 +688,8 @@ CREATE TABLE IF NOT EXISTS `units` (
 INSERT INTO `units` (`id`, `name`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
 (1, 'KG', 1, 4, 4, '2023-02-11 23:52:48', '2023-02-12 05:06:53'),
 (4, 'PCS', 1, 4, NULL, '2023-02-12 05:06:44', NULL),
-(5, 'GM', 1, 4, NULL, '2023-02-12 05:07:05', NULL);
+(5, 'GM', 1, 4, NULL, '2023-02-12 05:07:05', NULL),
+(6, 'Karina Russell', 1, 4, NULL, '2023-03-21 09:21:36', NULL);
 
 -- --------------------------------------------------------
 
