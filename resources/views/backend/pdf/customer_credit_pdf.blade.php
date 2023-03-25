@@ -54,11 +54,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-                
-
                         <div class="row">
                             <div class="col-12">
                                 <div>
@@ -101,8 +96,7 @@
                                                         $total_due += $item->due_amount;  
                                                        @endphp
                                                     @endforeach
-                                                    <tr>
-                                                      
+                                                    <tr> 
                                                         <td class="thick-line"></td>
                                                         <td class="thick-line"></td>
                                                         <td class="thick-line"></td>
@@ -110,8 +104,6 @@
                                                             <strong>Grand Due Amount</strong></td>
                                                         <td class="no-line text-end"><h4 class="m-0">${{ $total_due }}</h4></td>
                                                     </tr>
-
-  
                                                 </tbody>
                                             </table>
                                         </div>

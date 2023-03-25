@@ -251,7 +251,6 @@
                     category_name:category_name,
                     product_id:product_id,
                     product_name:product_name
-
                  };
                  var html = tamplate(data);
                  $("#addRow").append(html); 

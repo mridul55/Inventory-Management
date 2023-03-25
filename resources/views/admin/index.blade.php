@@ -12,7 +12,7 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Upcube</a></li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);"></a></li>
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                     </div>
@@ -29,7 +29,7 @@
                         <div class="d-flex">
                             <div class="flex-grow-1">
                                 <p class="text-truncate font-size-14 mb-2">Total Sales</p>
-                                <h4 class="mb-2">1452</h4>
+                                <h4 class="mb-2"></h4>
                                 <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>9.23%</span>from previous period</p>
                             </div>
                             <div class="avatar-sm">
@@ -47,7 +47,7 @@
                         <div class="d-flex">
                             <div class="flex-grow-1">
                                 <p class="text-truncate font-size-14 mb-2">New Orders</p>
-                                <h4 class="mb-2">938</h4>
+                                <h4 class="mb-2"></h4>
                                 <p class="text-muted mb-0"><span class="text-danger fw-bold font-size-12 me-2"><i class="ri-arrow-right-down-line me-1 align-middle"></i>1.09%</span>from previous period</p>
                             </div>
                             <div class="avatar-sm">
@@ -65,7 +65,7 @@
                         <div class="d-flex">
                             <div class="flex-grow-1">
                                 <p class="text-truncate font-size-14 mb-2">New Users</p>
-                                <h4 class="mb-2">8246</h4>
+                                <h4 class="mb-2"></h4>
                                 <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>16.2%</span>from previous period</p>
                             </div>
                             <div class="avatar-sm">
@@ -83,7 +83,7 @@
                         <div class="d-flex">
                             <div class="flex-grow-1">
                                 <p class="text-truncate font-size-14 mb-2">Unique Visitors</p>
-                                <h4 class="mb-2">29670</h4>
+                                <h4 class="mb-2"></h4>
                                 <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>11.7%</span>from previous period</p>
                             </div>
                             <div class="avatar-sm">
@@ -114,7 +114,7 @@
                           
                         </div>
 
-                        <h4 class="card-title mb-4">Latest Transactions</h4>
+                        {{-- <h4 class="card-title mb-4">Latest Transactions</h4>
 
                         <div class="table-responsive">
                             <table class="table table-centered mb-0 align-middle table-hover table-nowrap">
@@ -236,7 +236,7 @@
                                      <!-- end -->
                                 </tbody><!-- end tbody -->
                             </table> <!-- end table -->
-                        </div>
+                        </div> --}}
                     </div><!-- end card -->
                 </div><!-- end card -->
             </div>

@@ -13,15 +13,15 @@
                 <li class="menu-title">Menu</li>
 
                 <li>
-                    <a href="" class="waves-effect">
-                        <i class="ri-dashboard-line"></i><span class="badge rounded-pill bg-success float-end">3</span>
+                    <a href="{{ url('/dashboard') }}" class="waves-effect">
+                      <i class="ri-home-fill"></i> <span class="badge rounded-pill bg-success float-end">3</span>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="javascript: void(0)" class="has-arrow waves-effect">
-                    <i class="ri-mail-sent-line"></i>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                      <i class="ri-hotel-fill"></i> 
                     <span>Manage Suppliers</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -31,19 +31,18 @@
 
                 <li>
                     <a href="javascript: void(0)" class="has-arrow waves-effect">
-                    <i class="ri-mail-sent-line"></i>
+                      <i class="ri-shield-user-fill"></i>
                     <span>Manage Customers</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                       <li><a href="{{ route('customer.all') }}">All Customers</a></li>
                       <li><a href="{{ route('credit.customer') }}">Credit Customers</a></li>
-
                     </ul>
                 </li>
 
                 <li>
                     <a href="javascript: void(0)" class="has-arrow waves-effect">
-                    <i class="ri-mail-sent-line"></i>
+                      <i class="ri-delete-back-fill"></i>
                     <span>Manage Units</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -53,7 +52,7 @@
 
                 <li>
                     <a href="javascript: void(0)" class="has-arrow waves-effect">
-                    <i class="ri-mail-sent-line"></i>
+                      <i class="ri-apps-2-fill"></i>
                     <span>Manage Category</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -63,7 +62,7 @@
 
                 <li>
                     <a href="javascript: void(0)" class="has-arrow waves-effect">
-                    <i class="ri-mail-sent-line"></i>
+                      <i class="ri-reddit-fill"></i>
                     <span>Manage Products</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -73,21 +72,19 @@
 
                 <li>
                     <a href="javascript: void(0)" class="has-arrow waves-effect">
-                    <i class="ri-mail-sent-line"></i>
+                      <i class="ri-oil-fill"></i>
                     <span>Manage Purchase</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                       <li><a href="{{ route('purchase.all') }}">All Purchase</a></li>
                       <li><a href="{{ route('purchase.pending') }}">Approval Purchase</a></li>
                       <li><a href="{{ route('daily.purchase.report') }}">Daily  Purchase Report</a></li>
-
-
                     </ul>
                 </li>
 
                 <li>
                   <a href="javascript: void(0)" class="has-arrow waves-effect">
-                  <i class="ri-mail-sent-line"></i>
+                    <i class="ri-compass-2-fill"></i>
                   <span>Manage Invoice</span>
                   </a>
                   <ul class="sub-menu" aria-expanded="false">
@@ -101,7 +98,7 @@
               <li class="menu-title">Stock</li>
               <li>
                 <a href="javascript: void(0)" class="has-arrow waves-effect">
-                <i class="ri-mail-sent-line"></i>
+                  <i class="ri-gift-fill"></i>
                 <span>Manage Stock</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
@@ -113,7 +110,7 @@
             {{-- Test --}}
             {{-- <li>
               <a href="javascript: void(0)" class="has-arrow waves-effect">
-              <i class="ri-mail-sent-line"></i>
+              <i class="fa-thin fa-user"></i>
               <span>Test</span>
               </a>
               <ul class="sub-menu" aria-expanded="false">

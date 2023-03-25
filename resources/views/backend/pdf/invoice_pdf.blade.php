@@ -146,7 +146,7 @@
                                                         $total_sum ='0';
                                                     @endphp
                                             
-                                            @foreach($invoice['invoice_details'] as $key => $details)
+                                            @foreach($invoice['invoice_details'] as $key => $details)\z
                                                         <tr>
                                                             <td class="text-center">{{ $key+1 }}</td>
                                                             <td class="text-center">{{ $details->ctg->name }}</td>
@@ -235,22 +235,6 @@
 
                             </div>
                         </div> <!-- end row -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     </div>
                 </div>
             </div> <!-- end col -->

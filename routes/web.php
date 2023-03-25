@@ -37,7 +37,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/supplier/edit/{id}', 'SupplierEdit')->name('supplier.edit');
         Route::post('/supplier/update/{id}', 'SupplierUpdate')->name('supplier.update');
         Route::get('/supplier/delete/{id}', 'SupplierDelete')->name('supplier.delete');
-
     });
 });  
 //Customer
@@ -108,7 +107,6 @@ Route::controller(DefaultController::class)->group(function(){
     Route::get('/get-category', 'GetCategory')->name('get-category');
     Route::get('/get-product', 'GetProduct')->name('get-product');
     Route::get('/get-product-stock', 'GetProductStock')->name('check-product-stock');
-
 });
 //Invoice
 Route::middleware(['auth'])->group(function () {
@@ -124,7 +122,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/print/invoice/{id}', 'PrintInvoice')->name('print.invoice');
         Route::get('/daily/invoice/report', 'DailyInvoiceReport')->name('daily.invoice.report');
         Route::get('/daily/invoice/pdf', 'DailyInvoicePdf')->name('daily.invoice.pdf');
-
     });
 });
 
@@ -148,7 +145,6 @@ Route::middleware(['auth'])->group(function () {
         // Route::get('/test/edit/{id}', 'TestEdit')->name('test.edit');
         // Route::post('/test/update/{id}', 'TestUpdate')->name('test.update');
         // Route::get('/test/delete/{id}', 'TestDelete')->name('test.delete');
-
     });
 }); 
 

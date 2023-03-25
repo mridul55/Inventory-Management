@@ -120,32 +120,29 @@ class CustomerController extends Controller
     }
 
     public function CreditCustomer(){
-
         $allData = InvoicePayment::whereIn('paid_status',['full_due','partial_paid'])->get();
         return view('backend.customer.customer_credit',compact('allData'));
     }
 
-    public function CreditCustomerPrintPdf(){
-        
+    public function CreditCustomerPrintPdf()
+    {
         $allData = InvoicePayment::whereIn('paid_status',['full_due','partial_paid'])->get();
         return view('backend.pdf.customer_credit_pdf',compact('allData'));
     }
 
-    public function CustomerEditInvoice($invoice_id){
-
+    public function CustomerEditInvoice($invoice_id)
+    {
         $payment = InvoicePayment::where('invoice_id',$invoice_id)->first();
         return view('backend.customer.edit_customer_invoice',compact('payment'));
-        
     }
 
-    public function CustomerUpdateInvoice(Request $request,$invoice_id ){
-        
+    public function CustomerUpdateInvoice(Request $request,$invoice_id )
+    {
         if($request->new_paid_amount < $request->paid_amount){
             $notification = array(
                 'message' => 'Sry You paid maxiam value',
                 'alert-type' => 'success'
             );
-    
             return redirect()->back()->with($notification);
         } else{
             $payment = InvoicePayment::where('invoice_id',$invoice_id)->first();

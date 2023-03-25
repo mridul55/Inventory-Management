@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-body ">
 
-                        <h4 class="card-title">Add Supplier</h4>
+                        <h4 class="card-title">Edit Supplier</h4>
                         <form action="{{ route('supplier.update', $supplieredit->id) }}" id="myForm" method="post">
                             @csrf
 
